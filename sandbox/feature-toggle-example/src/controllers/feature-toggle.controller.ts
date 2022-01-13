@@ -1,4 +1,4 @@
-import {get, response} from '@loopback/rest';
+import {get} from '@loopback/rest';
 import {authenticate, STRATEGY} from 'loopback4-authentication';
 import {authorize} from 'loopback4-authorization';
 import {
@@ -9,16 +9,19 @@ import {STATUS_CODE} from '@sourceloop/core';
 import {FeatureToggleBindings} from '../keys';
 
 export class FeatureToggleController {
-  @get('/featureFlag')
-  @response(STATUS_CODE.OK, {
-    description: '',
-    content: {
-      'application/json': {
-        schema: {
-          type: 'object',
-          title: 'Response',
-          properties: {
-            message: {type: 'string'},
+  @get('/featureFlag', {
+    responses: {
+      [STATUS_CODE.OK]: {
+        description: '',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              title: 'Response',
+              properties: {
+                message: {type: 'string'},
+              },
+            },
           },
         },
       },
@@ -38,16 +41,19 @@ export class FeatureToggleController {
     };
   }
 
-  @get('/skipFeatureFlag')
-  @response(STATUS_CODE.OK, {
-    description: '',
-    content: {
-      'application/json': {
-        schema: {
-          type: 'object',
-          title: 'Response',
-          properties: {
-            message: {type: 'string'},
+  @get('/skipFeatureFlag', {
+    responses: {
+      [STATUS_CODE.OK]: {
+        description: '',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              title: 'Response',
+              properties: {
+                message: {type: 'string'},
+              },
+            },
           },
         },
       },
@@ -62,16 +68,19 @@ export class FeatureToggleController {
     };
   }
 
-  @get('/customFeatureFlag')
-  @response(STATUS_CODE.OK, {
-    description: '',
-    content: {
-      'application/json': {
-        schema: {
-          type: 'object',
-          title: 'Response',
-          properties: {
-            message: {type: 'string'},
+  @get('/customFeatureFlag', {
+    responses: {
+      [STATUS_CODE.OK]: {
+        description: '',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              title: 'Response',
+              properties: {
+                message: {type: 'string'},
+              },
+            },
           },
         },
       },
